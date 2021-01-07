@@ -10,7 +10,7 @@ import java.util.Map;
 public class Two {
     public static void main(String[] args) {
         //C:\project\mine\myjvm\jvm\src\main\java\test.bc
-        Map<Integer, Instruct> instructionMap = ParseFile.parse("C:\\project\\mine\\myjvm\\jvm\\src\\main\\java\\test.bc");
+        Map<Integer, Instruct> instructionMap = ParseFile.parse("C:\\project\\mine\\myjvm\\jvm\\src\\main\\java\\sum10.bc");
 
         Frame frame = new Frame();
         Interpreter.run(frame, instructionMap);

@@ -5,6 +5,7 @@ import com.software.one.Instruction.ILoad0Inst;
 import com.software.one.Instruction.IReturnInst;
 import com.software.one.Instruction.IStore0Inst;
 import com.software.one.Instruction.Iconst1Inst;
+import com.software.two.Instruction.*;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -58,6 +59,36 @@ public class ParseFile {
                     break;
                 case "ireturn":
                     instruction = new IReturnInst();
+                    break;
+                case "iconst_0":
+                    instruction = new IConst0Inst();
+                    break;
+                case "istore_1":
+                    instruction = new IStore1Inst();
+                    break;
+                case "istore_2":
+                    instruction = new IStore2Inst();
+                    break;
+                case "iload_1":
+                    instruction = new ILoad1Inst();
+                    break;
+                case "iload_2":
+                    instruction = new ILoad2Inst();
+                    break;
+                case "bipush":
+                    instruction = new BiPushInst(Byte.parseByte(terms[2]));
+                    break;
+                case "if_icmpgt":
+                    instruction = new IfICmpGtInst(Integer.parseInt(terms[2]));
+                    break;
+                case "iadd":
+                    instruction = new IAddInst();
+                    break;
+                case "iinc":
+                    instruction = new IIncInst(Integer.parseInt(terms[2]), Integer.parseInt(terms[3]));
+                    break;
+                case "goto":
+                    instruction = new GotoInst(Short.parseShort(terms[2]));
                     break;
                 default:
                     break;
