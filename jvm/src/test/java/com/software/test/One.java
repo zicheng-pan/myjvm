@@ -1,12 +1,12 @@
 package com.software.test;
 
-import com.software.one.Frame;
-import com.software.one.Instruct;
-import com.software.one.Instruction.ILoad0Inst;
-import com.software.one.Instruction.IReturnInst;
-import com.software.one.Instruction.IStore0Inst;
-import com.software.one.Instruction.Iconst1Inst;
-import com.software.one.Interpreter;
+import com.software.buildInstruction.Frame;
+import com.software.buildInstruction.Instruct;
+import com.software.buildInstruction.Instruction.ILoad0Inst;
+import com.software.buildInstruction.Instruction.IReturnInst;
+import com.software.buildInstruction.Instruction.IStore0Inst;
+import com.software.buildInstruction.Instruction.Iconst1Inst;
+import com.software.buildInstruction.Interpreter;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,12 +1,17 @@
 package com.software.test;
 
-import com.software.Three.ClassFile;
-import com.software.Three.ClassReader;
+import com.software.readClassFile.ClassFile;
+import com.software.readClassFile.ClassReader;
+import com.software.buildInstruction.Frame;
+import com.software.buildInstruction.Instruct;
+import com.software.buildInstruction.Interpreter;
 
 import java.io.DataInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.Map;
 
 public class Three {
     public static void testRead() throws IOException {
@@ -24,11 +29,20 @@ public class Three {
         }
     }
 
-    public static void main(String[] args) {
-        try {
-            testRead();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public static void main(String[] args) throws Exception {
+        final File file = new File("C:\\workspace\\intellj-java\\git_project\\myjvm\\jvm\\src\\main\\java\\Sum10.class");
+
+        ClassFile classFile = null;
+        try (FileInputStream fis = new FileInputStream(file);
+             final DataInputStream dis = new DataInputStream(fis)
+        ) {
+            classFile = ClassReader.read(dis);
+        }
+
+        Map<Integer, Instruct> instructionMap = classFile.methods[1].getCode(classFile).getInstructions(classFile.constantPool);
+        if (instructionMap != null) {
+            Frame frame = new Frame();
+            Interpreter.run(frame, instructionMap);
         }
     }
 }

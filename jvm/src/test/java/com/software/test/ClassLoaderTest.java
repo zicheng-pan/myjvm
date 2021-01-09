@@ -1,0 +1,46 @@
+package com.software.test;
+
+import com.software.addclassPath.ClassLoader;
+import com.software.readClassFile.ClassFile;
+
+/*下面举几个使用 classpath 的例子：
+java HelloWorld
+copy
+默认情况下，虚拟机会将当前目录加到 classpath 中。
+
+java -cp . HelloWorld
+copy
+-cp 或者 -classpath 命令是等价的（简单起见，我们要实现的虚拟机只支持 -cp 选项），这个例子和上面的例子是等价的，都是将当前目录加到 classpath 中。
+
+java -cp misc Test
+copy
+意味着将当前目录下的 misc 目录加到 classpath 中。
+
+java -cp temp/misc.jar Test
+copy
+意味着将当前目录下的 temp/misc.jar 文件加到 classpath 中。
+
+java -cp misc:temp/misc.jar Test
+copy
+意味着将当前目录下的 misc 目录和当前目录下的 temp 目录下的 misc.jar 文件加到 classpath 中。其中 : 号多个 classpath 的分隔符。
+ */
+public class ClassLoaderTest {
+
+    public static void testLoadClassFromDir() {
+        final ClassLoader loader = new ClassLoader("misc");
+
+        final ClassFile cf = loader.loadClassFileFromDir("misc", "Test");
+    }
+
+    public static void testLoadClassFromJar() {
+        final String home = System.getenv("JAVA_HOME");
+        String runtimeJarPath = home + "/jre/lib/rt.jar";
+        final ClassLoader loader = new ClassLoader(runtimeJarPath);
+
+        final ClassFile cf = loader.loadClassFileFromJar(runtimeJarPath, "java/lang/Object");
+    }
+
+    public static void main(String[] args) {
+        ClassLoaderTest.testLoadClassFromJar();
+    }
+}
