@@ -4,7 +4,7 @@ package com.software.readClassFile;
 public class U2 {
     public final int val;
 
-    U2(int val) {
+    public U2(int val) {
         this.val = val;
     }
 }

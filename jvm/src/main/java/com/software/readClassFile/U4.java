@@ -5,7 +5,7 @@ public class U4 {
 
     public final int val;
 
-    U4(int val) {
+    public U4(int val) {
         this.val = val;
     }
 }

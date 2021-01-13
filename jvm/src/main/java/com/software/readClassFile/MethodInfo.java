@@ -9,11 +9,11 @@ import java.util.Objects;
 //https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-4.html#jvms-4.6
 public class MethodInfo {
 
-    U2 accessFlags; // 访问标志
-    U2 nameIndex; // 方法名索引
-    U2 descriptorIndex; // 方法描述符索引
-    U2 attributesCount; // 属性数
-    AttributeInfo[] attributes; // 属性
+    public U2 accessFlags; // 访问标志
+    public U2 nameIndex; // 方法名索引
+    public U2 descriptorIndex; // 方法描述符索引
+    public U2 attributesCount; // 属性数
+    public AttributeInfo[] attributes; // 属性
 
     public MethodInfo(U2 accessFlags,
                       U2 nameIndex,

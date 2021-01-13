@@ -3,22 +3,22 @@ package com.software.readClassFile;
 // 定义class 文件
 public class ClassFile {
 
-    U4 magic; // 魔数
-    U2 minorVersion; // minor_version
-    U2 majorVersion; // major_version
-    U2 constantPoolCount; // 常量池大小
+    public U4 magic; // 魔数
+    public U2 minorVersion; // minor_version
+    public U2 majorVersion; // major_version
+    public U2 constantPoolCount; // 常量池大小
     public CpInfo[] constantPool; // 常量池
-    U2 accessFlags; // 访问标志
-    U2 thisClass; // 当前类名索引
-    U2 superClass; // 父类类名索引
-    U2 interfacesCount; // 接口数
-    U2[] interfaces; // 接口
-    U2 fieldsCount; // 字段数
-    FieldInfo[] fields; // 字段
-    U2 methodsCount; // 方法数
+    public U2 accessFlags; // 访问标志
+    public U2 thisClass; // 当前类名索引
+    public U2 superClass; // 父类类名索引
+    public U2 interfacesCount; // 接口数
+    public U2[] interfaces; // 接口
+    public U2 fieldsCount; // 字段数
+    public FieldInfo[] fields; // 字段
+    public U2 methodsCount; // 方法数
     public MethodInfo[] methods; // 方法
-    U2 attributesCount; // 属性数
-    AttributeInfo[] attributes; // 属性
+    public U2 attributesCount; // 属性数
+    public AttributeInfo[] attributes; // 属性
 
     public ClassFile(
             U4 magic,

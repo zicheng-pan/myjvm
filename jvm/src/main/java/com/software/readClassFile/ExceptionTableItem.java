@@ -6,7 +6,7 @@ public class ExceptionTableItem {
     final int handlerPc;
     final int catchType;
 
-    ExceptionTableItem(int startPc, int endPc, int handlerPc, int catchType) {
+    public ExceptionTableItem(int startPc, int endPc, int handlerPc, int catchType) {
         this.startPc = startPc;
         this.endPc = endPc;
         this.handlerPc = handlerPc;
