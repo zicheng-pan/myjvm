@@ -1,5 +1,6 @@
 package com.software.addclassPath;
 
+import com.software.addMetaSpace.Metaspace;
 import com.software.readClassFile.*;
 
 import java.io.*;
@@ -116,6 +117,12 @@ public class ClassLoader {
      * @return {@link Class} 实例
      */
     public Class findClass(String name) {
+
+        Class cacheClass = Metaspace.findClass(name);
+        if (cacheClass != null) {
+            return cacheClass;
+        }
+
         // parse file
         ClassFile classFile = loadClassFileFromClasspath(this.classpath, name);
 
@@ -199,6 +206,7 @@ public class ClassLoader {
 
         final Class clazz = new Class(name, superClass, methods, classFile);
         clazz.stat = Const.CLASS_LOADED;
+        Metaspace.putClass(name, clazz);
         return clazz;
     }
 
